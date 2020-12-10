@@ -14,13 +14,13 @@ This automated RNA-seq analysis pipeline uses Hisat2 for alignment and Stringie 
 3. Next, we need to download the GTF file for Stringtie. An easy way to do this is using the [UCSC website](https://hgdownload.soe.ucsc.edu/downloads.html#mouse). To download the mm39 GTF file, type `wget https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/genes/refGene.gtf.gz`. 
 4. Finally, create a data directory to store your trimmed fastq files as inputs. You can do this by typing `mkdir data`. This pipeline does not run trimmomatic, so make sure you trim adaptors from your files before running this pipeline. Each sample should have a R1 and R2 file associated with it. 
 
-## Edit the config.yaml file
+## Edit the config.yaml file:
 5. Edit the config.yaml to insert your sample names and paths, GTF path, Hisat index path, threads, etc. There is no need to make changes to the Snakefile. 
-## Dry-run
+## Dry-run:
 6. Now you are ready to run the pipeline. It's a good idea to do a dry-run, which will just print the commands to screen. This is helpful to make sure all the paths are correct. To do a dry-run type `snakemake -np`
-## Run snakemake
+## Run snakemake:
 7. Once everything is correct, make sure your rnaseq conda environment is activated and type `snakemake -p -j 1`. -j specifies the number of cores, so set this to match what you put in the config.yaml file. The -p option simply prints the commands to the screen. 
-## Outputs
+## Outputs:
 8. The pipeline will create directories for each sample `stringtie/quant/exp1`. Each directory will contain mulitple output files including the gtf and abundance files. Overall gene count and transcript count matricies will be ouput in `differential_expression/`. These can be directly read into DESeq2 for differential expression analysis.
 
 ### Feel free to send any questions to Will Rosenow at wr8yp@virginia.edu
