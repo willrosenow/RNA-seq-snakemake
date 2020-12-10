@@ -3,7 +3,7 @@ This automated RNA-seq analysis pipeline uses Hisat2 for alignment and Stringie 
 
 # Installation Instructions:
 1. Open your terminal and clone this repository to your computer using the command: `git clone https://github.com/willrosenow/RNA-seq-snakemake.git`
-2. This pipeline uses a conda environment to ensure package dependencies work correctly. Create a conda environment by running: `conda env create -f environment.yaml`
+2. This pipeline uses a conda environment to ensure package dependencies work correctly. Create a conda environment named rnaseq by running: `conda env create -f environment.yaml`
 3. Once this is complete, activate the conda environment using: `conda activate rnaseq`. To deactivate the environment simply type: `conda deactivate`
 4. Finally, we must install Snakemake using mamba. To install snakemake, we must activate the conda environment as shown above. Then type: `mamba install -c conda-forge -c bioconda snakemake`
 5. Once this is complete your conda envioronment is set up and ready to run the pipeline.
