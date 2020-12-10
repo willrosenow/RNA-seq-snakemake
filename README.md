@@ -23,3 +23,5 @@ This automated RNA-seq analysis pipeline uses Hisat2 for alignment and Stringie 
 ## Outputs
 8. The pipeline will create directories for each sample `stringtie/quant/exp1`. Each directory will contain mulitple output files including the gtf and abundance files. Overall gene count and transcript count matricies will be ouput in `differential_expression/`. These can be directly read into DESeq2 for differential expression analysis.
 
+Feel free to send any questions to Will Rosenow at wr8yp@virginia.edu
+
