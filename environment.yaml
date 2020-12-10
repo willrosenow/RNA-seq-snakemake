@@ -5,7 +5,7 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - python
+  - python=3.7
   - hisat2
   - samtools
   - stringtie
