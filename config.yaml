@@ -1,12 +1,24 @@
 ###################################################################################################################################
+###This is the only file you need to edit for the pipeline
 ###USER INPUTS:
+
+#Inset sample names as a list:
 SAMPLES: ["exp1", "exp3"]
+
+#Insert path to GTF file downloaded from UCSC:
 GENOME_GTF: "data/Mus_musculus.GRCm38.84.gtf"
-THREADS: 1
+
+#Insert path to Hisat2 index files. There should be multiple files in your directory similar to genome_snp.1.ht2. Just give the path to the directory and the prefix to the file. For example mine is "grcm38_snp/genome_snp".
 HISAT2_INDEX_PREFIX: "grcm38_snp/genome_snp"
+
+#Insert the path to the directory that has your fastq files:
 DATA_PATH: "/project/farber_lab/rnaseq_pipeline/data/"
+
+#Each sample should have R1 and R2 files. Insert the extension for each. For example if your file is "exp1_R1_001_paired.fq.gz", your sample name is "exp1", your R1_ext is "_R1_001_paired.fq.gz" and your R2_ext is "_R2_001_paired.fq.gz". This should be consistent across all samples.
 R1_EXT: "_R1_001_paired.fq.gz"
 R2_EXT: "_R2_001_paired.fq.gz"
 
+#Insert number of threads you would like to use. If not sure, leave it at 1
+THREADS: 1
 #####################################################################################################################################
 
