@@ -1,7 +1,7 @@
 # RNA-seq-snakemake
 This automated RNA-seq analysis pipeline uses Hisat2 for alignment and Stringie for transcript assembly and quantification. It outputs gtf and abundance files for each sample, along with overall gene count and trascript count matricies that can be read into DESeq2 for differential expression analysis. This workflow takes trimmed fastq files as inputs, therefore trimming of adaptor sequences must be done prior. 
 
-# Installation instructions:
+# Installation Instructions:
 1. Open your terminal and clone this repository to your computer using the command `git clone https://github.com/willrosenow/RNA-seq-snakemake.git`
 2. This pipeline uses a conda environment to ensure package dependencies work correctly. Create a conda environment by running: `conda env create -f environment.yaml`
 3. Once this is complete, activate the conda environment using: `conda activate rnaseq`. To deactivate the environment simply type `conda deactivate`
