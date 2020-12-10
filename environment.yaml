@@ -1,0 +1,12 @@
+name: rnaseq
+channels:
+  - anaconda
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - python
+  - hisat2
+  - samtools
+  - stringtie
+  - mamba

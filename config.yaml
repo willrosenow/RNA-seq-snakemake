@@ -1,0 +1,12 @@
+###################################################################################################################################
+###USER INPUTS:
+SAMPLES: ["exp1", "exp3"]
+GENOME_GTF: "data/Mus_musculus.GRCm38.84.gtf"
+THREADS: 1
+HISAT2_INDEX_PREFIX: "grcm38_snp/genome_snp"
+DATA_PATH: "/project/farber_lab/rnaseq_pipeline/data/"
+R1_EXT: "_R1_001_paired.fq.gz"
+R2_EXT: "_R2_001_paired.fq.gz"
+
+#####################################################################################################################################
+
