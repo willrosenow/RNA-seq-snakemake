@@ -9,4 +9,7 @@ Automated RNA-seq analysis pipeline using Snakemake
 5. Once this is complete your conda envioronment is set up and ready to run the pipeline.
 
 # Pipeline Instructions:
+1. Hisat2 requires index files. I download these from the hisat2 website at http://daehwankimlab.github.io/hisat2/download/. Find the genome_snp index for your organism/build and copy the link address. To do this from the command line, type `get--content-disposition https://cloud.biohpc.swmed.edu/index.php/s/grcm38_snp/download`. This will download a .tar.gz file.
+2. Unpack this file by running: `tar -xzvf grcm38_snp.tar.gzgrcm38_snp.tar.gz`. This will create a directory called grcm38_snp with all the index files in it.
+3. 
 
