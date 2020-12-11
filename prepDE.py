@@ -1,12 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import re, csv, sys, os, glob, warnings, itertools
 from math import ceil
 from optparse import OptionParser
 from operator import itemgetter
-
-MIN_PYTHON = (2, 7)
-if sys.version_info < MIN_PYTHON:
-    sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
 parser=OptionParser(description='Generates two CSV files containing the count matrices for genes and transcripts, using the coverage values found in the output of `stringtie -e`')
 parser.add_option('-i', '--input', '--in', default='.', help="a folder containing all sample sub-directories, or a text file with sample ID and path to its GTF file on each line [default: %default/]")
@@ -51,11 +47,14 @@ else:
       print(" ")
       print("Error: sub-directory '%s' not found!" % (opts.input))
       sys.exit(1)
-
     #####
     ## Collect all samples file paths and if empty print help message and quit
     #####
-    samples = [(i,next(glob.iglob(os.path.join(opts.input,i,"*.gtf")))) for i in next(os.walk(opts.input))[1] if re.search(opts.pattern,i)]
+    samples = []
+    for i in next(os.walk(opts.input))[1]:
+        if re.search(opts.pattern,i):
+         for f in glob.iglob(os.path.join(opts.input,i,"*.gtf")):
+            samples.append((i,f)) 
 
 if len(samples) == 0:
   parser.print_help()
