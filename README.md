@@ -1,5 +1,5 @@
 # RNA-seq-snakemake
-This automated RNA-seq analysis pipeline uses Hisat2 for alignment and Stringie for transcript assembly and quantification. It outputs gtf and abundance files for each sample, along with overall gene count and trascript count matricies that can be read into DESeq2 for differential expression analysis. This workflow takes trimmed fastq files as inputs, therefore trimming of adaptor sequences must be done prior. 
+This automated RNA-seq analysis pipeline uses Hisat2 for alignment and Stringie for transcript assembly and quantification. It outputs GTF and abundance files for each sample, along with overall gene count and transcript count matrices that can be read into DESeq2 for differential expression analysis. This workflow takes trimmed fastq files as inputs, therefore trimming of adaptor sequences must be done prior. 
 
 # Installation Instructions:
 1. Open your terminal and clone this repository to your computer using the command: `git clone https://github.com/willrosenow/RNA-seq-snakemake.git`
