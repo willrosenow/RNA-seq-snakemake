@@ -11,30 +11,6 @@ print(SAMPLES)
 rule all:
      input: "differential_expression/gene_count_matrix.csv"
 
-#Pipeline:
-#Trimmomatic not included for now:
-#TRIM_ADAPTORS = "ILLUMINACLIP:illumina_universal.fa"
-#rule trim_samples:
-#	input: 
-#            fq1="data/{sample}_R1_{SAMPLES_SUFFIX}",
-#            fq2="data/{sample}_R2_{SAMPLES_SUFFIX}"
-#	output:
-#            r1="trimmed/{sample}.1.fastq.gz",
-#            r2="trimmed/{sample}.2.fastq.gz",
-#            # reads where trimming entirely removed the mate
-#            r1_unpaired="trimmed/{sample}.1.unpaired.fastq.gz",
-#            r2_unpaired="trimmed/{sample}.2.unpaired.fastq.gz"
-#	params:
-#            # list of trimmers (see manual)
-#            trimmer=["TRAILING:3"],
-#            # optional parameters
-#            extra="",
-#            compression_level="-9"
-#	    trim_opts = "-phred33" + TRIM_ADAPTORS + ":2:30:10:2:keepBothReads LEADING:3 TRAILING:3 MINLEN:36"
-#	threads: THREADS
-#	shell:
-#	    "java -jar {params.TRIMMOMATIC_JAR} \"
-	    
 rule align_hisat:
     input:
         fq1= config['DATA_PATH'] + "{sample}" + config['R1_EXT'],
@@ -94,21 +70,6 @@ rule stringtie_quant:
         "stringtie -e -B -p {threads} -G {input.merged_gtf} "
         "-A {output.gene_abund_tab} -o {output.gtf} {input.sample_bam}"
 
-#rule collate_counts:
-#    input:
-#        abundances = expand(join('stringtie/quant/', '{sample}', '{sample}'  + '.gtf'), sample = SAMPLES)
-#    output:
-#        geneCounts = join('stringtie/quant/', 'counts', 'gene_counts.csv'),
-#        transcriptCounts = join('stringtie/quant/', 'counts', 'transcript_counts.csv')
-#    message: 
-#        """--- Outputting count matrices """
-#    run:
-#
-#        shell('prepDE.py'
-#                ' -i ' + join(OUT_DIR, 'ballgown') + 
-#                ' -g ' + join(OUT_DIR, 'ballgown', 'gene_counts.csv') +
-#                ' -t ' + join(OUT_DIR, 'ballgown', 'transcript_counts.csv'))
-
 rule prep:
     input: expand("stringtie/quant/{sample}/{sample}.gtf", sample=SAMPLES)
     output: "differential_expression/prepDE_list.txt" 
@@ -130,7 +91,3 @@ rule prepde:
 
 
 print("Done")
-
-#rule clean:
-#    shell:
-#        "rm -rf align_hisat2 hisat2_index stringtie"
